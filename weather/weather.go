@@ -15,11 +15,10 @@ type Weather struct {
 
 // https://core.telegram.org/bots/features#web-apps Maybe upgrade to a weather webapp in the future for this?
 
-func New(language string) (*Weather, error) {
+func New() (*Weather, error) {
 	var unit = "C"
-	var lang = language
 
-	w, err := owm.NewCurrent(unit, lang, os.Getenv("OPENWEATHER_APITOKEN"))
+	w, err := owm.NewCurrent(unit, "en", os.Getenv("OPENWEATHER_APITOKEN"))
 	if err != nil {
 		return nil, errors.New("[WEATHER]: Location Error")
 	}
