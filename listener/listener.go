@@ -79,14 +79,14 @@ func Listen(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel, weather *weat
 
 				msg.Text = fmt.Sprintf("%s\n\n%s", greetingMessage, helpMessage)
 			case "hello":
-				message, err := greetings.Hello(username)
+				greetingMessage, err := greetings.Hello(username)
 				if err != nil {
 					fmt.Println(err)
 					msg.Text = "Sorry I seem to have lost my greeting!"
 					break
 				}
 
-				msg.Text = message
+				msg.Text = greetingMessage
 			case "help":
 				helpMessage, err := help.New()
 				if err != nil {
@@ -131,6 +131,7 @@ func Listen(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel, weather *weat
 			case "test": // Currently testing inline keyboard things
 				msg.ReplyMarkup = numericKeyboard
 			case "settings":
+				msg.Text = "Settings have not been implemented yet, sorry!"
 			default:
 				msg.Text = fmt.Sprintf("Sorry I don't know the command %s 😢", text)
 			}
