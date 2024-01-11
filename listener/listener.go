@@ -2,12 +2,12 @@ package listener
 
 import (
 	"fmt"
+	"ltb/dice"
+	"ltb/greetings"
+	"ltb/help"
+	"ltb/weather"
 	"strconv"
 	"strings"
-	"telebot/dice"
-	"telebot/greetings"
-	"telebot/help"
-	"telebot/weather"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )

@@ -1,4 +1,4 @@
-module telebot
+module ltb
 
 go 1.20
 

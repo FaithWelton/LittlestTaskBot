@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"ltb/listener"
+	"ltb/weather"
 	"os"
-	"telebot/listener"
-	"telebot/weather"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
