@@ -1,4 +1,4 @@
-module ltb
+module taskbot
 
 go 1.20
 
