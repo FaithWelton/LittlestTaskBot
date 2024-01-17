@@ -19,18 +19,18 @@ func processMessage(update tgbotapi.Update) (string, string) {
 func Listen(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel, weather *weather.Weather) {
 	fmt.Printf("[LTB]: Listening...\n")
 
-	var numericKeyboard = tgbotapi.NewInlineKeyboardMarkup(
-		tgbotapi.NewInlineKeyboardRow(
-			tgbotapi.NewInlineKeyboardButtonData("1", "1"),
-			tgbotapi.NewInlineKeyboardButtonData("2", "2"),
-			tgbotapi.NewInlineKeyboardButtonData("3", "3"),
-		),
-		tgbotapi.NewInlineKeyboardRow(
-			tgbotapi.NewInlineKeyboardButtonData("4", "4"),
-			tgbotapi.NewInlineKeyboardButtonData("5", "5"),
-			tgbotapi.NewInlineKeyboardButtonData("6", "6"),
-		),
-	)
+	// var numericKeyboard = tgbotapi.NewInlineKeyboardMarkup(
+	// 	tgbotapi.NewInlineKeyboardRow(
+	// 		tgbotapi.NewInlineKeyboardButtonData("1", "1"),
+	// 		tgbotapi.NewInlineKeyboardButtonData("2", "2"),
+	// 		tgbotapi.NewInlineKeyboardButtonData("3", "3"),
+	// 	),
+	// 	tgbotapi.NewInlineKeyboardRow(
+	// 		tgbotapi.NewInlineKeyboardButtonData("4", "4"),
+	// 		tgbotapi.NewInlineKeyboardButtonData("5", "5"),
+	// 		tgbotapi.NewInlineKeyboardButtonData("6", "6"),
+	// 	),
+	// )
 
 	for update := range updates {
 		if update.Message == nil {
@@ -129,7 +129,8 @@ func Listen(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel, weather *weat
 				btn := tgbotapi.NewKeyboardButtonLocation("Send Location to Taskbot 📍")
 				msg.ReplyMarkup = tgbotapi.NewReplyKeyboard([]tgbotapi.KeyboardButton{btn})
 			case "test": // Currently testing inline keyboard things
-				msg.ReplyMarkup = numericKeyboard
+				//msg.ReplyMarkup = numericKeyboard
+				msg.Text = "DOES THE THING WORK???"
 			case "settings":
 				msg.Text = "Settings have not been implemented yet, sorry!"
 			default:
