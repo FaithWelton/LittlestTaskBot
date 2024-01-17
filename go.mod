@@ -1,6 +1,6 @@
 module taskbot
 
-go 1.20
+go 1.21
 
 require (
 	github.com/briandowns/openweathermap v0.19.0
