@@ -78,15 +78,6 @@ func Listen(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel, weather *weat
 				}
 
 				msg.Text = fmt.Sprintf("%s\n\n%s", greetingMessage, helpMessage)
-			case "hello":
-				greetingMessage, err := greetings.Hello(username)
-				if err != nil {
-					fmt.Println(err)
-					msg.Text = "Sorry I seem to have lost my greeting!"
-					break
-				}
-
-				msg.Text = greetingMessage
 			case "help":
 				helpMessage, err := help.New()
 				if err != nil {
@@ -137,6 +128,18 @@ func Listen(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel, weather *weat
 			}
 		} else {
 			// Handle NON COMMANDS
+
+			// Greetings
+			if text == "hello" || text == "Hello" || text == "hi" || text == "Hi" {
+				greetingMessage, err := greetings.Hello(username)
+				if err != nil {
+					fmt.Println(err)
+					msg.Text = "Sorry I seem to have lost my greeting!"
+					break
+				}
+
+				msg.Text = greetingMessage
+			}
 
 			// Weather / Location
 			if update.Message.Location != nil {
